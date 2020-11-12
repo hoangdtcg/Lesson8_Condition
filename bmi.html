@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+</head>
+<style>
+    form{
+        width: 250px;
+    }
+    input{
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+<form>
+    <fieldset>
+        <legend>BMI Calculator</legend>
+        <span>Weight:</span><input id="weight" type="number" onchange="bmiCalculator()" placeholder="kg">
+        <span>Height:</span><input id="height" type="number" onchange="bmiCalculator()" placeholder="meter">
+        <button type="button" onclick="bmiCalculator()">Calculator</button>
+        <p id="result"></p>
+    </fieldset>
+</form>
+<script>
+    /*let weight = +prompt("Nhap can nang");
+    let height = +prompt("Nhap chieu cao");
+    let bmi = 0;
+
+    // bmi = weight / (height*height);
+    bmi = weight / Math.pow(height,2); //Math Javascript
+
+    if(bmi < 18.5){
+        alert(bmi + ": Underweight");
+    }else if(bmi>=18.5 && bmi < 25){
+        alert(bmi + ": Normal");
+    }else if (bmi >= 25 && bmi < 30){
+        alert(bmi + ": Overweight");
+    }else {
+        alert(bmi + ": Obese");
+    }*/
+    function bmiCalculator() {
+        let weight = +document.getElementById('weight').value;
+        let height = +document.getElementById('height').value;
+        let bmi = 0;
+
+        bmi = weight / Math.pow(height,2); //Math Javascript
+
+        if(bmi < 18.5){
+            document.getElementById('result').innerText = (bmi.toFixed(2) + ": Underweight");
+        }else if(bmi>=18.5 && bmi < 25){
+            document.getElementById('result').innerText = (bmi.toFixed(2) + ": Normal");
+        }else if (bmi >= 25 && bmi < 30){
+            document.getElementById('result').innerText = (bmi.toFixed(2) + ": Overweight");
+        }else {
+            document.getElementById('result').innerText = (bmi.toFixed(2) + ": Obese");
+        }
+    }
+</script>
+</body>
+</html>
