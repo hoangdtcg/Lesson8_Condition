@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<style>
+    td{
+        width: 80px;
+        height: 40px;
+    }
+    button{
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+<table border="1px">
+    <tr>
+        <td id="screen" colspan="4"></td>
+
+    </tr>
+    <tr>
+        <td><button onclick="clickBtn('(')">(</button></td>
+        <td><button onclick="clickBtn(')')">)</button></td>
+        <td><button onclick="deleteOne()">DEL</button></td>
+        <td><button onclick="clearScreen()">AC</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="clickBtn(7)">7</button></td>
+        <td><button onclick="clickBtn(8)">8</button></td>
+        <td><button onclick="clickBtn(9)">9</button></td>
+        <td><button onclick="clickBtn('/')">/</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="clickBtn(4)">4</button></td>
+        <td><button onclick="clickBtn(5)">5</button></td>
+        <td><button onclick="clickBtn(6)">6</button></td>
+        <td><button onclick="clickBtn('*')">X</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="clickBtn(1)">1</button></td>
+        <td><button onclick="clickBtn(2)">2</button></td>
+        <td><button onclick="clickBtn(3)">3</button></td>
+        <td><button onclick="clickBtn('-')">-</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="clickBtn(0)">0</button></td>
+        <td><button onclick="clickBtn('.')">.</button></td>
+        <td><button onclick="calculator()">=</button></td>
+        <td><button onclick="clickBtn('+')">+</button></td>
+    </tr>
+</table>
+<script>
+    let screen = document.getElementById('screen');
+    function clickBtn(value) {
+        if(screen.innerText != '0'){
+            screen.innerText += value;
+        }else {
+            screen.innerText = value;
+        }
+
+    }
+
+    function calculator() {
+        let value = screen.innerText;
+        let result = eval(value);
+        screen.innerText = result;
+    }
+
+    function clearScreen() {
+        screen.innerText = '0';
+    }
+
+    function calPercent() {
+        let result = +screen.innerText/100;
+        screen.innerText = result;
+    }
+    
+    function deleteOne() {
+        let str = screen.innerText;
+        let res = str.substring(0,str.length-1);
+        screen.innerText = res;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funny Ngan</title>
+</head>
+<style>
+    body {
+        position: relative;
+    }
+
+    img {
+        width: 150px;
+        position: absolute;
+        left: 300px;
+        top: 200px;
+    }
+</style>
+<body>
+<img id="ngan" style="left: 0;top: 0" src="images/ngan-kute.jpg" alt="">
+<script>
+    function getKey(event) {
+        let ngan = document.getElementById('ngan');
+        switch (event.key) {
+            case 'd':
+                moveRight();
+                break;
+            case 'a':
+                ngan.style.left = parseInt(ngan.style.left)-10+'px';
+                break;
+            case 'w':
+                ngan.style.top = parseInt(ngan.style.top)-10+'px';
+                break;
+            case 's':
+                ngan.style.top = parseInt(ngan.style.top)+10+'px';
+                break;
+        }
+    }
+
+    function moveRight(){
+        let ngan = document.getElementById('ngan');
+        ngan.style.left = parseInt(ngan.style.left)+10+'px';
+    }
+
+    window.addEventListener('keydown', getKey);
+
+    // setInterval(moveRight, 100);
+</script>
+</body>
+</html>
